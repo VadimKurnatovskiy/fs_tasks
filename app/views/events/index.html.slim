@@ -1,0 +1,39 @@
+.col-lg-12.col-md-12
+  .mb-2.text-left
+    = link_to 'New Event', new_event_path, class: 'btn btn-md secondary-color-dark'
+    = link_to 'New Category', new_event_path, class: 'btn btn-md default-color-dark'
+  .event
+    | All Events
+    a.show-events.btn-success.btn-sm show/disable
+  .events-list
+    table.table.table-striped
+      thead
+        tr
+          th
+            h5 Username
+          th
+            h5 Name
+          th
+            h5 Start Date
+          th
+            h5 Information
+
+      tbody
+        -@events.each do |event|
+          tr
+            td= event.user.name
+            td= event.name
+            td= l(event.start_time, format: :long)
+            td= link_to 'Show', event_path(event), class: 'btn primary-color-dark'
+
+.row
+  .col-lg-12.col-md-12
+    h3.mb-3.text-center Calendar
+    = month_calendar events: @calendar_events do |day, events|
+      date
+      div
+        strong= day.to_s(:long)
+      - events.each do |event|
+        div
+          = link_to "#{event.user.name} - #{event.name}", event_path(event.id)
+br

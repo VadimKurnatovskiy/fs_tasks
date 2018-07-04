@@ -1,0 +1,23 @@
+.row
+  .col-lg-6.col-md-12.col-sm-12.mx-auto
+    .card.mb-5
+      .card-block
+        ul.list-group
+          li.list-group-item
+            h4
+              span.badge.badge-pill.grey.btn-space-text Name:
+              text #{@event.name}
+          li.list-group-item
+            h4
+              span.badge.badge-pill.grey.btn-space-text Description:
+              text #{@event.description}
+          li.list-group-item
+            h4
+              span.badge.badge-pill.grey.btn-space-text Time:
+              text #{@event.start_time}
+          - if policy(@event).edit? || policy(@event).destroy?
+            li.list-group-item.text-center
+              = link_to 'Edit', edit_event_path(@event), class: 'btn btn-primary btn-space'
+              = link_to 'Delete', @event, method: :delete, data: { confirm: 'Are you sure?' },
+                  class: 'btn btn-danger btn-space'
+              = link_to 'Back', events_path, class: 'btn btn-primary btn-space'

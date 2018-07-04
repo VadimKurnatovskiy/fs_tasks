@@ -1,0 +1,22 @@
+= bootstrap_devise_error_messages!
+
+.col-lg-6.col-md-12.col-sm-12.mx-auto
+  .panel.panel-default.devise-bs
+    .panel-heading
+      %h3.text-center= t('.sign_up', default: 'Sign up')
+    .panel-body
+      = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { role: 'form' }) do |f|
+        .form-group
+          = f.label :name, class: 'badge badge-pill info-color-dark size-text'
+          = f.text_field :name, autofocus: true, class: 'form-control', placeholder: 'Example Name'
+        .form-group
+          = f.label :email, class: 'badge badge-pill info-color-dark size-text'
+          = f.email_field :email, class: 'form-control', placeholder: 'example@ex.com'
+        .form-group
+          = f.label :password, class: 'badge badge-pill info-color-dark size-text'
+          = f.password_field :password, class: 'form-control'
+        .form-group
+          = f.label :password_confirmation, class: 'badge badge-pill info-color-dark size-text'
+          = f.password_field :password_confirmation, class: 'form-control'
+        = f.submit t('.sign_up', default: 'Sign up'), class: 'btn success-color-dark btn-space'
+  = render 'devise/shared/links'

@@ -1,0 +1,121 @@
+body {
+  background-color: $background;
+   height: 100%;
+  min-width:900px;
+}
+html {
+ position:relative;
+ min-height:100%;
+}
+.event{
+  font-size: 30px;
+}
+text{
+  font-size: 18px;
+}
+footer {
+ height: 50px;
+ position: absolute;
+ bottom: 0;
+ width: 100%;
+}
+.btn-space-text{
+  margin-right: 18px !important;
+}
+.btn-space {
+  margin-right: 50px !important;
+}
+.size-text{
+  font-size: 13px;
+}
+.asas{
+  font-size: 18px;
+  font-family: Arial;
+  margin-top: 10px;
+  width: 16%;
+  display: inline !important;
+  color: #004d40;
+}
+.simple-calendar {
+  a{
+    color: #004d40;
+    margin-left:25px;
+    margin-right: 25px;
+  }
+  a:hover{
+    color: #0091ea;
+  }
+  .calendar-heading{
+    text-align: center;
+    margin-left:0;
+    margin-right: 0;
+  }
+  .calendar-title{
+    color: #1C2331;
+    font-family: serif;
+    font-size: larger;
+    font-stretch: semi-expanded;
+  }
+  table {
+    background-color: rgba(0, 0, 0, 0);
+    border: 1px solid rgb(221, 221, 221);
+    border-collapse: collapse;
+    box-sizing: border-box;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  tr {
+    border-collapse: collapse;
+  }
+
+  th {
+    padding: 6px;
+    border-bottom: 2px solid rgb(221, 221, 221);
+    border-collapse: collapse;
+    border-left: 1px solid rgb(221, 221, 221);
+    border-right: 1px solid rgb(221, 221, 221);
+    border-top: 0px none rgb(51, 51, 51);
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+  td {
+    padding: 6px;
+    vertical-align: top;
+    width: 14%;
+
+    border: 1px solid #ddd;
+    border-top-color: rgb(221, 221, 221);
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-right-color: rgb(221, 221, 221);
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-bottom-color: rgb(221, 221, 221);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-left-color: rgb(221, 221, 221);
+    border-left-style: solid;
+    border-left-width: 1px;
+  }
+
+  .day {
+    height: 100px;
+  }
+
+  .today {
+    background: #FFFFC0
+  }
+
+  .prev-month {
+    background: #9fa8da;
+  }
+  .next-month {
+    background: #9fa8da;
+  }
+
+  .has-events {
+    color: #2e7d32;
+  }
+}

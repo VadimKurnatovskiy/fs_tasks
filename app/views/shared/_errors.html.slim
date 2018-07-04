@@ -1,0 +1,8 @@
+- errors = model.errors
+
+- if errors.any?
+  .alert.alert-danger
+    ul
+      button.close  data-dismiss="alert"   x
+      - errors.full_messages.each do |message|
+        li= message
