@@ -1,7 +1,7 @@
 # Tasks for Flatstack.
 
 # Первое тестовое задание
-
+ Run first_task.erb at the main folder.
 ## Условие задачи
 
 Дана последовательность:
