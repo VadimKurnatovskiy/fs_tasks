@@ -7,6 +7,15 @@ html {
  position:relative;
  min-height:100%;
 }
+text{
+  font-size: 18px;
+}
+footer {
+ height: 50px;
+ position: absolute;
+ bottom: 0;
+ width: 100%;
+}
 .event{
   font-size: 30px;
 }
@@ -17,15 +26,6 @@ html {
   width: 30%;
   display: inline !important;
   color: #3d504d;
-}
-text{
-  font-size: 18px;
-}
-footer {
- height: 50px;
- position: absolute;
- bottom: 0;
- width: 100%;
 }
 .btn-space-text{
   margin-right: 18px !important;
