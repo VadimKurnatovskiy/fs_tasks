@@ -1,7 +1,7 @@
 = form_for (@event) do |f|
   = render partial: 'shared/errors', locals: { model: @event }
   .row
-    .col-lg-6.col-md-12.col-sm-12.mx-auto
+    .col-lg-6.col-md-12.col-sm-12.ml-5
       .card.mb-5
         .card-block
           ul.list-group.list-group-flush
@@ -17,7 +17,7 @@
               = f.label :start_time, class: 'badge blue size-text'
               = f.datetime_select :start_time, { ampm: false, order: [:day, :month, :year] }, { class: "form-control asas" }
             li.list-group-item
-              = f.label :recurring, class: 'badge primary-color size-text btn-space-text'
+              = f.label 'Set shedule' , class: 'badge primary-color size-text btn-space-text'
               = f.select_recurring :recurring, nil, allow_blank: true
             li.list-group-item.text-center
               = f.submit 'Save', class: 'btn  btn-success btn-space'

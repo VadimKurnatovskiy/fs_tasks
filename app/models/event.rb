@@ -3,8 +3,8 @@ class Event < ApplicationRecord
 
   belongs_to :user
 
-  validates :name, presence: true, length: { in: 2..100 }
-  validates :description, length: { in: 3..4_000 }
+  validates :name, presence: true, length: { in: 5..100 }
+  validates :description, length: { in: 1..1_000 }
   validates :start_time, presence: true
 
   def recurring=(value)

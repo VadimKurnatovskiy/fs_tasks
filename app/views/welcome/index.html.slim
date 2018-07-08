@@ -1,1 +1,5 @@
-h3.text-center It's start page. Welcome to calendar planner.
+h3.text-center.size-text2
+  - if user_signed_in?
+    | Hello, #{current_user.name}. It's start page. Welcome to calendar planner.
+  - else
+      | Hello! It's start page. Welcome to calendar planner. Sign in to continue!

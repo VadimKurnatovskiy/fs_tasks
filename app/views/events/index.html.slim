@@ -1,10 +1,8 @@
 .col-lg-12.col-md-12
-  .mb-2.text-left
-    = link_to 'New Event', new_event_path, class: 'btn btn-md secondary-color-dark'
-    = link_to 'New Category', new_event_path, class: 'btn btn-md default-color-dark'
+  = link_to 'New Event', new_event_path, class: 'btn btn-md secondary-color-dark'
   .event
-    | All Events
-    a.show-events.btn-success.btn-sm show/disable
+    | Events
+    a.show-events.btn-success.btn-sm.mr-3.ml-3.mr-2 show/disable
   .events-list
     table.table.table-striped
       thead

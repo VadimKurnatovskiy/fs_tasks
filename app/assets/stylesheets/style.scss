@@ -10,6 +10,14 @@ html {
 .event{
   font-size: 30px;
 }
+.recurring_select{
+  font-size: 18px;
+  font-family: Arial;
+  margin-top: 10px;
+  width: 30%;
+  display: inline !important;
+  color: #3d504d;
+}
 text{
   font-size: 18px;
 }
@@ -22,11 +30,20 @@ footer {
 .btn-space-text{
   margin-right: 18px !important;
 }
+.unhappy{
+  margin-left: 350px !important;
+}
 .btn-space {
   margin-right: 50px !important;
 }
 .size-text{
   font-size: 13px;
+}
+.size-text2{
+  font-size: 30px;
+}
+.size-text3{
+  font-size: 20px;
 }
 .asas{
   font-size: 18px;
@@ -35,6 +52,9 @@ footer {
   width: 16%;
   display: inline !important;
   color: #004d40;
+}
+.edit-text{
+  margin-left: 90px;
 }
 .simple-calendar {
   a{

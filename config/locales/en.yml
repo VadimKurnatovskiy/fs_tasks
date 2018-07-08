@@ -31,3 +31,10 @@
 
 en:
   hello: "Hello world"
+  recurring_select:
+    not_recurring: "--without shedule--"
+    change_schedule: "Change schedule"
+    set_schedule: "--set schedule--"
+    new_custom_schedule: "New custom schedule..."
+    custom_schedule: "Custom schedule..."
+    or: or
