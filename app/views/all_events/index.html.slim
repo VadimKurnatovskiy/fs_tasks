@@ -1,0 +1,32 @@
+== yield
+.row
+  .col-lg-8.col-md-8.columns
+
+    = month_calendar events: @events do |date, events|
+      .text-right
+        - if date == Date.today
+          = link_to date.strftime("%d"), day_calendar_all_events_path(start_date: date.strftime("%Y-%m-%d")), {style: 'color: red'}
+        - else
+          = link_to date.strftime("%d"), day_calendar_all_events_path(start_date: date.strftime("%Y-%m-%d"))
+
+
+      ul
+        .text-black
+          - if events != nil
+            - for event in events
+              - if event.user_id == current_user.id
+                li
+                  = link_to truncate(event.name, length: 9, separator: ' '), {controller: "events", action: "show", id: event.id}
+              - else
+                li
+                  = link_to truncate(event.name, length: 9, separator: ' '), all_event_path(event)
+  .small-2.columns
+    h4.text-center.font-weight-200.ml-3
+      | All events (
+      = @events.size
+      | )
+    hr
+    h5.font-weight-200
+      .font-weight-300
+      = link_to "List", list_all_events_path, class: "ml-3"
+      hr

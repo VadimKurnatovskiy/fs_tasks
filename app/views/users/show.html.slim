@@ -1,0 +1,39 @@
+= yield
+
+.row
+  .col-lg-12.col-md-12.columns.ml-5
+    h2.ml-5.text-danger
+      = @user.name
+    .small-7.columns
+      br
+      table.white-borders
+        tr
+          td.width-160
+            | Contact information
+          td
+            hr
+        tr
+          td
+            | Email:
+          td.text-right
+            = @user.email
+        tr
+          td
+            | Events number:
+          td.text-right
+            = @user.events.size
+        - if @user.events.size != 0
+          tr
+            td
+            td.text-right
+              dfn
+                - if @user.id == current_user.id
+                  = link_to 'Show events', events_path
+                - else
+                  = link_to 'Show events', {controller: "user_events", action: "index", id: @user.id}
+.text-left.ml-2
+  br
+  - if @user.id == current_user.id
+    = link_to 'Edit profile', edit_user_registration_path(@user) , class: "btn btn-md btn-success"
+    |
+  = link_to 'Back', :back , class: "btn btn-md btn-info"

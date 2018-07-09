@@ -1,0 +1,70 @@
+== yield
+.row
+  .col-lg-8.col-md-8.columns
+
+    = calendar number_of_days: 1, events: @events do |date, events|
+      - if date == Date.today
+        h2.font-weight-200.text-center
+          = date.strftime("%d")
+          | &ensp;
+          = date.strftime("%B")
+          | &ensp;
+          = date.strftime("%Y")
+          br
+          h4.font-weight-200.padding-top-8.text-center
+            = date.strftime('%A')
+      - else
+        h2.font-weight-200.text-center
+          = date.strftime("%d")
+          | &ensp;
+          = date.strftime("%B")
+          | &ensp;
+          = date.strftime("%Y")
+        br
+        h4.font-weight-200.text-center
+          = date.strftime('%A')
+
+      ul.text-black
+        br
+        - for event in events
+          h3
+            .text-center
+              = link_to event.name, event_path(event)
+          table.white-borders.text-left
+            tr.white-borders
+              td.width-100
+                | Start time:
+              td = event.start_time.strftime("%d.%m.%Y")
+            - if event.description != ''
+              tr.white-borders
+                td.width-100 valign="top"
+                  | Description:
+                td = truncate(event.description, length: 90, separator: ' ')
+            tr.white-borders
+              td.width-100 valign="top"
+                | Autor:
+              td
+                dfn
+                  = link_to event.user.email, user_show_path(event.user)
+          .text-left
+            = link_to "More", event_path(event), class: "btn btn-md success-color"
+          hr
+          br
+        - if events.empty?
+          h5.text-center.font-weight-200
+            | No events
+      h4.font-weight-200.text-center
+        i
+          = link_to "Create event on this day", new_event_path()
+
+  .small-2.columns
+    h4.text-center.font-weight-200
+      | All events (
+      = @events.size
+      | )
+    hr
+    h5.font-weight-200
+      = link_to "Month calendar", all_events_path
+
+      .font-weight-300
+      = link_to "List", list_all_events_path

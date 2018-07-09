@@ -1,4 +1,4 @@
-class Event < ApplicationRecord
+class Event < ActiveRecord::Base
   serialize :recurring, Hash
 
   belongs_to :user
@@ -35,4 +35,5 @@ class Event < ApplicationRecord
       end
     end
   end
+
 end

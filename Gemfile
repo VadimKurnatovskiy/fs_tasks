@@ -19,6 +19,7 @@ gem 'slim'
 gem 'recurring_select', github: "RundownApp/recurring_select"
 gem 'simple_calendar'
 gem 'pundit'
+gem 'kaminari'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

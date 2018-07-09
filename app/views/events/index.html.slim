@@ -1,28 +1,30 @@
 .col-lg-12.col-md-12
   = link_to 'New Event', new_event_path, class: 'btn btn-md secondary-color-dark'
+  = link_to 'All Events', all_events_path, class: 'btn btn-md primary-color-dark'
   .event
-    | Events
+    | My Events
     a.show-events.btn-success.btn-sm.mr-3.ml-3.mr-2 show/disable
-  .events-list
-    table.table.table-striped
-      thead
-        tr
-          th
-            h5 Username
-          th
-            h5 Name
-          th
-            h5 Start Date
-          th
-            h5 Information
-
-      tbody
-        -@events.each do |event|
+  - if @user = current_user
+    .events-list
+      table.table.table-striped
+        thead
           tr
-            td= event.user.name
-            td= event.name
-            td= l(event.start_time, format: :long)
-            td= link_to 'Show', event_path(event), class: 'btn primary-color-dark'
+            th
+              h5 Username
+            th
+              h5 Name
+            th
+              h5 Start Date
+            th
+              h5 Information
+
+        tbody
+          -@events.each do |event|
+            tr
+              td= event.user.name
+              td= event.name
+              td= l(event.start_time, format: :long)
+              td= link_to 'Show', event_path(event), class: 'btn primary-color-dark'
 
 .row
   .col-lg-12.col-md-12

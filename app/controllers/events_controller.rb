@@ -4,7 +4,7 @@ class EventsController < ApplicationController
   before_action :event_set, only: %i[show edit update destroy]
 
   def index
-    @events = Event.all
+    @events = current_user.events
     @calendar_events = @events.flat_map { |e| e.calendar_events(params.fetch(:start_date, Time.zone.now).to_date, e.user) }
     authorize @events
   end
@@ -47,6 +47,10 @@ class EventsController < ApplicationController
   end
 
   private
+
+  def my_event
+
+  end
 
   def event_set
     @event = Event.find(params[:id])

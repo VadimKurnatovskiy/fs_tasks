@@ -1,0 +1,69 @@
+== yield
+.row
+  .col-lg-8.col-md-8.columns.ml-5
+    - for event in @events
+      - if params[:today_events] == 'true'
+        - if event.start_time == Date.today
+          h3.text-center
+            = link_to event.name, all_event_path(event)
+          table.white-borders
+            tr
+              td.width-100
+                | Start time:
+              td = event.start_time.strftime("%d.%m.%Y")
+            - if event.description != ''
+              tr
+                td.width-100 valign="top"
+                  | Description:
+                td = truncate(event.description, length: 90, separator: ' ')
+            tr
+              td.width-100 valign="top"
+                | Autor:
+              td
+                dfn
+                  = link_to event.user.email, user_show_path(event.user)
+          hr
+      - else
+        h3.text-center
+          = link_to event.name, all_event_path(event)
+        table.white-borders
+          tr
+            td.width-100
+              | Start time:
+            td = event.start_time.strftime("%d.%m.%Y")
+          - if event.description != ''
+            tr
+              td.width-100 valign="top"
+                | Description:
+              td = truncate(event.description, length: 90, separator: ' ')
+          tr
+            td.width-100 valign="top"
+              | Autor:
+            td
+              dfn
+                = link_to event.user.email, user_show_path(event.user)
+        hr
+
+    = paginate @events
+    - if @events.empty?
+      h2.text-center
+        dfn
+          = link_to @user.name, user_show_path(@user)
+        | 's events
+      h3.text-center
+        br
+        dfn
+          = link_to @user.name, user_show_path(@user)
+        |  has not created events yet
+  .small-2.columns
+    h4.text-center.font-weight-200
+      dfn
+        = link_to @user.name, user_show_path(@user)
+      | 's events (
+      = @events.size
+      | )
+    hr
+    h5.font-weight-200
+      = link_to "Month calendar", user_meetings_path('id': @user.id)
+      .font-weight-300
+        = link_to "List", list_user_meetings_path('id': @user.id)

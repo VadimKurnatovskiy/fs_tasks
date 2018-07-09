@@ -1,0 +1,24 @@
+.row
+  .col-lg-8.col-md-8.columns
+    h2
+      .text-center
+        = @event.name
+    table.white-borders
+      tr
+        td.width-100
+          | Start time:
+        td = @event.start_time.strftime("%d.%m.%Y")
+      - if @event.description != ''
+        tr
+          td.width-100 valign="top"
+            | Description:
+          td = @event.description
+      tr
+        td.width-100 valign="top"
+          | Autor:
+        td
+          dfn
+            = link_to @event.user.email, user_show_path(@event.user)
+    br
+    .text-left.ml-3
+      = link_to 'Back', :back , class: "btn btn-md btn-info"

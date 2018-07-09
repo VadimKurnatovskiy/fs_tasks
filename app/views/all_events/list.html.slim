@@ -1,0 +1,65 @@
+== yield
+.row
+  .col-lg-8.col-md-8.columns.ml-5
+
+    - for event in @events
+      - if params[:today_events] == 'true'
+        - if event.start_time == Date.today
+          h3.ml-3.size-text2
+            - if event.user_id == current_user.id
+              = link_to event.name, {controller: "events", action: "show", id: event.id}, class: "ml-2 text-primary"
+            - else
+              = link_to event.name, all_event_path(event), class: "ml-2 text-primary"
+          table.white-borders
+              tr
+                td.width-100
+                  | Start time:
+                td = event.start_time.strftime("%d.%m.%Y")
+              - if event.description != ''
+                tr
+                  td.width-100 valign="top"
+                    | Description:
+                  td = truncate(event.description, length: 90, separator: ' ')
+              tr
+                td.width-100 valign="top"
+                  | Autor:
+                td
+                  dfn
+                    = link_to event.user.email, user_show_path(event.user)
+          hr
+
+      - else
+        h3.ml-3.size-text2
+          | Name:
+          - if event.user_id == current_user.id
+            = link_to event.name, {controller: "events", action: "show", id: event.id}, class: "ml-2 text-primary"
+          - else
+            = link_to event.name, all_event_path(event), class: "ml-2 text-primary"
+        table.white-borders.ml-1
+          tr
+            td.width-100
+              | Start time:
+            td = event.start_time.strftime("%d.%m.%Y")
+          - if event.description != ''
+            tr
+              td.width-100 valign="top"
+                | Description:
+              td = truncate(event.description, length: 90, separator: ' ')
+          tr
+            td.width-100 valign="top"
+              | Autor:
+            td
+              dfn
+                = link_to event.user.email, user_show_path(event.user)
+        hr
+
+    = paginate @events
+    - if @events.empty?
+      h2.text-center
+        | All events
+      h3.text-center
+        br
+          | No events. You can
+          dfn
+            = link_to "create", new_meeting_path
+          |  an event first
